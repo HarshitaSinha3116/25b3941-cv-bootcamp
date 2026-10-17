@@ -1,0 +1,40 @@
+{
+  "name": "Harshita Sinha",
+  "roll_no": "25b3941",
+  "seed": 0,
+  "training_setup": {
+    "optimizer": "SGD, momentum 0.9, nesterov, weight decay 5e-4, lr 0.05",
+    "learning_rate_schedule": "cosine annealing, stepped once per epoch",
+    "batch_size": 128,
+    "epochs": 50,
+    "augmentation": "random crop (padding 4) + random horizontal flip",
+    "gpu_used": "Tesla T4"
+  },
+  "task1": {
+    "noise_rate": 0.4024,
+    "val_acc_noisy_labels__clean_ref_model": 0.5946,
+    "val_acc_noisy_labels__noisy_ce_model": 0.4908
+  },
+  "task2": {
+    "memorization_start_epoch": 21,
+    "early_stop_epoch": 31,
+    "val_acc_noisy_labels_at_early_stop": 0.5562
+  },
+  "task3": {
+    "method": "cv_loss from 3-fold cross validation on the noisy labels"
+  },
+  "task4": {
+    "methods": [
+      {
+        "name": "label_smoothing",
+        "file": "t4_label_smoothing.csv",
+        "val_acc_noisy_labels": 0.5576
+      }
+    ],
+    "best_method": "label_smoothing"
+  },
+  "task5": {
+    "val_acc_synthetic_labels__baseline": 0.411,
+    "val_acc_synthetic_labels__best_method": 0.4972
+  }
+}
